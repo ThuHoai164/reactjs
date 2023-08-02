@@ -11,9 +11,9 @@ import Menu from './web/menu';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    {/* <MyComponent /> */}
+    <MyComponent />
   
-    <Menu/>
+    {/* <Menu/> */}
     
   </React.StrictMode>
 );
