@@ -6,14 +6,14 @@ import './index.css';
 import reportWebVitals from './reportWebVitals';
 import Menu from './web/menu';
 // import Countries from './web/Countries';
-
+// import Formik from './view/formik/formik';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <MyComponent />
-  
-    {/* <Menu/> */}
+    {/* <MyComponent /> */}
+   <Menu/>
+    {/* <App/> */}
     
   </React.StrictMode>
 );

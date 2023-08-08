@@ -1,13 +1,14 @@
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import './App.css';
-import MyComponent from './view/example/MyComponent';
+// import MyComponent from './view/example/MyComponent';
 // import Menu from './web/Menu';
-  
+// import SingupForm from './view/Formik/SingupForm';
+import setFielValue from './view/Formik/setFieldValue';
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+        {/* <img src={logo} className="App-logo" alt="logo" /> */}
         <p>
           {/* Edit <code>src/App.js</code> and save to reload. */}
           Hello 
@@ -21,8 +22,12 @@ function App() {
           Learn React
         </a> */}
 
-        <MyComponent></MyComponent>
+        {/* <MyComponent></MyComponent> */}
         {/* <Menu></Menu> */}
+
+        {/* <SingupForm/> */}
+
+        <setTimeout/>
       </header>
     </div>
   );

@@ -4,8 +4,9 @@ import "./table.css"
 import Column from "./column";
 import data1 from "./data.json"
 import Edit from "./action/Edit";
-import Add from "./action/Add";
 import './action/Add.css';
+import { useFormik } from 'formik'
+import * as Yup from 'yup'
 
 function CountryData() {
     
@@ -116,10 +117,35 @@ function CountryData() {
 
     setContacts(newContacts);
   }
+
+  // ktra du lieu trong form 
+  const formik = useFormik({
+    initialValues:{
+      name:'',
+      code:'',
+      description:''
+    },
+
+    valitdationSchema: Yup.object({
+      name:Yup.string()
+      .min(10,"Your name must be at least 10 characters!")
+      .max(25,"Your name must be under 25 characters!")
+      .required("You must fill in this section!"),
+      
+      code:Yup.string().required("You must fill in this section!"),
+
+      description:Yup.string().required("You must fill in this section!"),
+
+    }),
+
+    onSubmit: (values) =>{
+      console.log(values)
+    }
+  })
   
   return(
     <div className="container">
-      <form onSubmit={handleEditFormSubmit}>
+      <form onSubmit={formik.handleEditFormSubmit}>
         <table>
           <thead>
             <tr>
@@ -156,13 +182,71 @@ function CountryData() {
         </table>
       </form>
       
-      <form onSubmit={handleAddFormSubmit}>
-        <Add
-          contact = {contact} 
-          addFormData = {addFormData}
-          handleAddFormChange = {handleAddFormChange}
-        />
-      </form>
+     
+    {/* Add */}
+
+    <div 
+      className='add-container' 
+    >
+      <div className='add'>
+        <form onSubmit ={handleAddFormSubmit} >
+            <div className='form-group'>
+                <label htmlFor='name'>Name:</label>
+                <input
+                  type='text'
+                  required = 'required'
+                  placeholder='Enter a name...'
+                  name='name'
+                  value={addFormData.name}
+                  onChange ={handleAddFormChange }
+                ></input>
+                {formik.errors.name && formik.touched.name && (
+                <p>{formik.errors.name}</p>
+                )}
+            </div>
+
+            <div className='form-group'>
+                <label htmlFor='code'>Code:</label>
+                <input
+                  type='text'
+                  required = 'required'
+                  placeholder='Enter a code...'
+                  name='code'
+                  value={addFormData.code}
+                  onChange ={handleAddFormChange }
+                >
+                </input>
+                {formik.errors.code && formik.touched.code && (
+                <p>{formik.errors.code}</p>
+                )}
+            </div>
+
+            <div className='form-group'>
+                <label htmlFor='description'>Description:</label>
+                <input
+                  type='text'
+                  required = 'required'
+                  placeholder='Enter a description...'
+                  name='description'
+                  value={addFormData.description}
+                  onChange ={handleAddFormChange }
+                >
+                </input>
+                {formik.errors.description && formik.touched.descripton && (
+                <p>{formik.errors.description}</p>
+                )}
+            </div>
+
+            <button 
+                type='submit'
+                className='add-submit'
+                value = 'Submit form '
+            >
+                Add
+            </button>
+        </form>
+      </div>
+    </div>
        
     </div>
   )
