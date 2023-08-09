@@ -1,6 +1,6 @@
 import React,{useState} from 'react'
 // import data1 from './data.json'
-
+import './column.css'
 export default function column(a) {
     // eslint-disable-next-line react-hooks/rules-of-hooks
     // const [contact, setContacts] = useState(data1);

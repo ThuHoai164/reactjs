@@ -1,5 +1,5 @@
 import React,{Fragment, useState} from "react";
-import { useTable } from "react-table";  
+// import { useTable } from "react-table";  
 import "./table.css"
 import Column from "./column";
 import data1 from "./data.json"
@@ -86,7 +86,6 @@ function CountryData() {
 
    // add
    const [addFormData, setAddFormData] = useState({
-  
     name: "",
     code : "",
     description:""
@@ -145,7 +144,7 @@ function CountryData() {
   
   return(
     <div className="container">
-      <form onSubmit={formik.handleEditFormSubmit}>
+      <form onSubmit={handleEditFormSubmit}>
         <table>
           <thead>
             <tr>
@@ -189,16 +188,15 @@ function CountryData() {
       className='add-container' 
     >
       <div className='add'>
-        <form onSubmit ={handleAddFormSubmit} >
+        <form onSubmit ={formik.handleAddFormSubmit} >
             <div className='form-group'>
                 <label htmlFor='name'>Name:</label>
                 <input
                   type='text'
                   required = 'required'
-                  placeholder='Enter a name...'
                   name='name'
                   value={addFormData.name}
-                  onChange ={handleAddFormChange }
+                  onChange ={formik.handleAddFormChange }
                 ></input>
                 {formik.errors.name && formik.touched.name && (
                 <p>{formik.errors.name}</p>
@@ -210,10 +208,9 @@ function CountryData() {
                 <input
                   type='text'
                   required = 'required'
-                  placeholder='Enter a code...'
                   name='code'
-                  value={addFormData.code}
-                  onChange ={handleAddFormChange }
+                  // value={formik.addFormData.code}
+                  onChange ={formik.handleAddFormChange}
                 >
                 </input>
                 {formik.errors.code && formik.touched.code && (
@@ -226,10 +223,9 @@ function CountryData() {
                 <input
                   type='text'
                   required = 'required'
-                  placeholder='Enter a description...'
                   name='description'
-                  value={addFormData.description}
-                  onChange ={handleAddFormChange }
+                  // value={formik.addFormData.description}
+                  onChange ={formik.handleAddFormChange }
                 >
                 </input>
                 {formik.errors.description && formik.touched.descripton && (
