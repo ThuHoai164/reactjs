@@ -137,9 +137,9 @@ function CountryData() {
 
     }),
 
-    onSubmit: (values) =>{
-      console.log(values)
-    }
+    // onSubmit: (values) =>{
+    //   console.log(values)
+    // }
   })
   
   return(
@@ -195,7 +195,7 @@ function CountryData() {
                   type='text'
                   required = 'required'
                   name='name'
-                  value={addFormData.name}
+                  value={formik.values.addFormData.name}
                   onChange ={formik.handleAddFormChange }
                 ></input>
                 {formik.errors.name && formik.touched.name && (
@@ -209,7 +209,7 @@ function CountryData() {
                   type='text'
                   required = 'required'
                   name='code'
-                  // value={formik.addFormData.code}
+                  value={formik.values.addFormData.code}
                   onChange ={formik.handleAddFormChange}
                 >
                 </input>
@@ -224,7 +224,7 @@ function CountryData() {
                   type='text'
                   required = 'required'
                   name='description'
-                  // value={formik.addFormData.description}
+                  value={formik.values.addFormData.description}
                   onChange ={formik.handleAddFormChange }
                 >
                 </input>
