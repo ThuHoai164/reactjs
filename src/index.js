@@ -4,17 +4,21 @@ import './index.css';
 // import App from './App';
 // import MyComponent from './view/example/MyComponent';
 import reportWebVitals from './reportWebVitals';
-import Menu from './web/menu';
+// import Menu from './basic/menu';
 // import Countries from './web/Countries';
 // import Formik from './view/formik/formik';
-
+// import Get from './API/get';
+// import Post from './API/post';
+import Sever from './Sever/sever';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     {/* <MyComponent /> */}
-   <Menu/>
+   {/* <Menu/> */}
     {/* <App/> */}
-    
+    {/* <Get/> */}
+    {/* <Post/> */}
+    <Sever/>
   </React.StrictMode>
 );
 

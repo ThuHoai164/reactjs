@@ -5,8 +5,8 @@ import Column from "./column";
 import data1 from "./data.json"
 import Edit from "./action/Edit";
 import './action/Add.css';
-import { useFormik } from 'formik'
-import * as Yup from 'yup'
+// import { useFormik } from 'formik'
+// import * as Yup from 'yup'
 
 function CountryData() {
     
@@ -118,29 +118,29 @@ function CountryData() {
   }
 
   // ktra du lieu trong form 
-  const formik = useFormik({
-    initialValues:{
-      name:'',
-      code:'',
-      description:''
-    },
+  // const formik = useFormik({
+  //   initialValues:{
+  //     name:'',
+  //     code:'',
+  //     description:''
+  //   },
 
-    valitdationSchema: Yup.object({
-      name:Yup.string()
-      .min(10,"Your name must be at least 10 characters!")
-      .max(25,"Your name must be under 25 characters!")
-      .required("You must fill in this section!"),
+  //   valitdationSchema: Yup.object({
+  //     name:Yup.string()
+  //     .min(10,"Your name must be at least 10 characters!")
+  //     .max(25,"Your name must be under 25 characters!")
+  //     .required("You must fill in this section!"),
       
-      code:Yup.string().required("You must fill in this section!"),
+  //     code:Yup.string().required("You must fill in this section!"),
 
-      description:Yup.string().required("You must fill in this section!"),
+  //     description:Yup.string().required("You must fill in this section!"),
 
-    }),
+  //   }),
 
-    // onSubmit: (values) =>{
-    //   console.log(values)
-    // }
-  })
+  //   // onSubmit: (values) =>{
+  //   //   console.log(values)
+  //   // }
+  // })
   
   return(
     <div className="container">
@@ -188,19 +188,19 @@ function CountryData() {
       className='add-container' 
     >
       <div className='add'>
-        <form onSubmit ={formik.handleAddFormSubmit} >
+        <form onSubmit ={handleAddFormSubmit} >
             <div className='form-group'>
                 <label htmlFor='name'>Name:</label>
                 <input
                   type='text'
                   required = 'required'
                   name='name'
-                  value={formik.values.addFormData.name}
-                  onChange ={formik.handleAddFormChange }
+                  value={addFormData.name}
+                  onChange ={handleAddFormChange }
                 ></input>
-                {formik.errors.name && formik.touched.name && (
+                {/* {formik.errors.name && formik.touched.name && (
                 <p>{formik.errors.name}</p>
-                )}
+                )} */}
             </div>
 
             <div className='form-group'>
@@ -209,13 +209,13 @@ function CountryData() {
                   type='text'
                   required = 'required'
                   name='code'
-                  value={formik.values.addFormData.code}
-                  onChange ={formik.handleAddFormChange}
+                  value={addFormData.code}
+                  onChange ={handleAddFormChange}
                 >
                 </input>
-                {formik.errors.code && formik.touched.code && (
+                {/* {formik.errors.code && formik.touched.code && (
                 <p>{formik.errors.code}</p>
-                )}
+                )} */}
             </div>
 
             <div className='form-group'>
@@ -224,13 +224,13 @@ function CountryData() {
                   type='text'
                   required = 'required'
                   name='description'
-                  value={formik.values.addFormData.description}
-                  onChange ={formik.handleAddFormChange }
+                  value={addFormData.description}
+                  onChange ={handleAddFormChange }
                 >
                 </input>
-                {formik.errors.description && formik.touched.descripton && (
+                {/* {formik.errors.description && formik.touched.descripton && (
                 <p>{formik.errors.description}</p>
-                )}
+                )} */}
             </div>
 
             <button 
